@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Users, Target, Heart, Award, Calendar, Code, Coffee, Lightbulb, ArrowRight, Quote, Linkedin, Mail, Star, CheckCircle, Zap, Shield, TrendingUp, Eye, Play, MapPin, Clock, Phone } from 'lucide-react';
+import { Users, Target, Heart, Award, Calendar, Code, Coffee, Lightbulb, ArrowRight, Quote, Linkedin, Mail, Star, CheckCircle, Shield, TrendingUp, Eye, Clock, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sectie } from '../../components/ui/Sectie';
 import { Kaart } from '../../components/ui/Kaart';
@@ -447,7 +447,7 @@ export default function OverOnsPagina() {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    {teamLeden.map((teamLid, index) => (
+                    {teamLeden.map((teamLid) => (
                         <motion.div
                             key={teamLid.id}
                             variants={itemVariants}
@@ -541,7 +541,7 @@ export default function OverOnsPagina() {
                                     <div className={`bg-gradient-to-r ${teamLid.kleurGradient} bg-opacity-10 rounded-lg p-4 relative`}>
                                         <Quote className="w-6 h-6 text-primair-300 absolute top-2 left-2" />
                                         <p className="text-sm text-secundair-700 italic pl-8">
-                                            "{teamLid.quote}"
+                                            &quot;{teamLid.quote}&quot;
                                         </p>
                                     </div>
 

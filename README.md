@@ -2,6 +2,7 @@
 Je kunt nu uitbreiden met:
 
 Redesign/verbetering Diensten pagina
+UI dingen verbeteren.
 Contact formulier functionaliteit
 Portfolio grid component
 

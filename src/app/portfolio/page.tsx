@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ExternalLink, Eye, Code, Calendar, Tag, ArrowRight, Filter, Star, TrendingUp, Award } from 'lucide-react';
+import { ExternalLink, Eye, Code, Calendar, Tag, ArrowRight, Star, TrendingUp, Award } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sectie } from '../../components/ui/Sectie';
 import { Kaart } from '../../components/ui/Kaart';
@@ -301,7 +301,7 @@ export default function PortfolioPagina() {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    {uitgelichtProjecten.slice(0, 2).map((project, index) => (
+                    {uitgelichtProjecten.slice(0, 2).map((project) => (
                         <motion.div
                             key={project.id}
                             variants={cardVariants}
@@ -500,7 +500,7 @@ export default function PortfolioPagina() {
                         animate="visible"
                         exit="exit"
                     >
-                        {gefilterdeProjecten.map((project, index) => (
+                        {gefilterdeProjecten.map((project) => (
                             <motion.div
                                 key={project.id}
                                 variants={cardVariants}

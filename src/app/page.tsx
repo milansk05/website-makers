@@ -4,7 +4,6 @@ import { HeroSectie } from '../components/homepage/HeroSectie';
 import { DienstenOverzicht } from '../components/homepage/DienstenOverzicht';
 import { VoordelenSectie } from '../components/homepage/VoordelenSectie';
 import { GetuigenissenSectie } from '../components/homepage/GetuigenissenSectie';
-import { Sectie } from '../components/ui/Sectie';
 import { Knop } from '../components/ui/Knop';
 import { ArrowRight, Phone } from 'lucide-react';
 

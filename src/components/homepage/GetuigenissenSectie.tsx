@@ -371,7 +371,7 @@ export const GetuigenissenSectie: React.FC = () => {
                                             >
                                                 <Quote className="w-12 h-12 text-primair-200 absolute -top-2 -left-2" />
                                                 <blockquote className="text-lg lg:text-xl text-secundair-700 leading-relaxed italic pl-8">
-                                                    "{uitgebreideWeergave ? huidige.uitgebreideTekst : huidige.tekst}"
+                                                    &ldquo;{uitgebreideWeergave ? huidige.uitgebreideTekst : huidige.tekst}&rdquo;
                                                 </blockquote>
                                             </motion.div>
 
