@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Primaire kleuren - blauw */
+  --color-primair-50: #eff6ff;
+  --color-primair-100: #dbeafe;
+  --color-primair-200: #bfdbfe;
+  --color-primair-500: #3b82f6;
+  --color-primair-600: #2563eb;
+  --color-primair-700: #1d4ed8;
+  --color-primair-900: #1e3a8a;
+
+  /* Secundaire kleuren - grijs */
+  --color-secundair-50: #f8fafc;
+  --color-secundair-100: #f1f5f9;
+  --color-secundair-200: #e2e8f0;
+  --color-secundair-500: #64748b;
+  --color-secundair-600: #475569;
+  --color-secundair-700: #334155;
+  --color-secundair-900: #0f172a;
+
+  /* Font families */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-white text-secundair-900 leading-relaxed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-aangepast {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .tekst-gradient {
+    @apply bg-gradient-to-r from-primair-600 to-primair-700 bg-clip-text text-transparent;
+  }
+
+  .schaduw-zacht {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .schaduw-hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
 }
