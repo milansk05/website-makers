@@ -1,6 +1,7 @@
 📋 Volgende Stappen
 Je kunt nu uitbreiden met:
 
+Redesign/verbetering Diensten pagina
 Contact formulier functionaliteit
 Portfolio grid component
 
