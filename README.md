@@ -1,3 +1,9 @@
+📋 Volgende Stappen
+Je kunt nu uitbreiden met:
+
+Contact formulier functionaliteit
+Portfolio grid component
+
 // Projectstructuur voor Website Makers Next.js App
 
 website-makers/
