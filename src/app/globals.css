@@ -1,53 +1,584 @@
-/* src/app/globals.css */
+/* src/app/globals.css - Gecorrigeerde versie voor Tailwind CSS v4 */
 @import "tailwindcss";
 
-@theme {
+/* CSS Custom Properties voor consistente theming */
+:root {
   /* Primaire kleuren - blauw */
   --color-primair-50: #eff6ff;
   --color-primair-100: #dbeafe;
   --color-primair-200: #bfdbfe;
+  --color-primair-300: #93c5fd;
+  --color-primair-400: #60a5fa;
   --color-primair-500: #3b82f6;
   --color-primair-600: #2563eb;
   --color-primair-700: #1d4ed8;
+  --color-primair-800: #1e40af;
   --color-primair-900: #1e3a8a;
+  --color-primair-950: #172554;
 
   /* Secundaire kleuren - grijs */
   --color-secundair-50: #f8fafc;
   --color-secundair-100: #f1f5f9;
   --color-secundair-200: #e2e8f0;
+  --color-secundair-300: #cbd5e1;
+  --color-secundair-400: #94a3b8;
   --color-secundair-500: #64748b;
   --color-secundair-600: #475569;
   --color-secundair-700: #334155;
+  --color-secundair-800: #1e293b;
   --color-secundair-900: #0f172a;
+  --color-secundair-950: #020617;
 
-  /* Font families */
-  --font-family-sans: 'Inter', system-ui, sans-serif;
+  /* Systeem kleuren */
+  --color-succes-50: #f0fdf4;
+  --color-succes-500: #22c55e;
+  --color-succes-600: #16a34a;
+
+  --color-waarschuwing-50: #fffbeb;
+  --color-waarschuwing-500: #f59e0b;
+  --color-waarschuwing-600: #d97706;
+
+  --color-fout-50: #fef2f2;
+  --color-fout-500: #ef4444;
+  --color-fout-600: #dc2626;
+
+  /* Typografie */
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-family-display: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  /* Schaduwen - Website Makers specifiek */
+  --shadow-zacht: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+  --shadow-glow-strong: 0 0 40px rgba(37, 99, 235, 0.25);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-default: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Tailwind CSS v4 Theme Configuration */
+@theme {
+  --color-primair-50: #eff6ff;
+  --color-primair-100: #dbeafe;
+  --color-primair-200: #bfdbfe;
+  --color-primair-300: #93c5fd;
+  --color-primair-400: #60a5fa;
+  --color-primair-500: #3b82f6;
+  --color-primair-600: #2563eb;
+  --color-primair-700: #1d4ed8;
+  --color-primair-800: #1e40af;
+  --color-primair-900: #1e3a8a;
+
+  --color-secundair-50: #f8fafc;
+  --color-secundair-100: #f1f5f9;
+  --color-secundair-200: #e2e8f0;
+  --color-secundair-300: #cbd5e1;
+  --color-secundair-400: #94a3b8;
+  --color-secundair-500: #64748b;
+  --color-secundair-600: #475569;
+  --color-secundair-700: #334155;
+  --color-secundair-800: #1e293b;
+  --color-secundair-900: #0f172a;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-display: 'Poppins', system-ui, sans-serif;
+}
+
+/* CSS Reset en basis styling */
 @layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e2e8f0;
+  }
+
   html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
     font-family: var(--font-family-sans);
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-secundair-900 leading-relaxed;
+    margin: 0;
+    line-height: inherit;
+    color: var(--color-secundair-900);
+    background-color: #ffffff;
+    font-family: var(--font-family-sans);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading stijlen */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--color-secundair-900);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  /* Responsieve heading groottes */
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3.75rem;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+    }
+
+    h3 {
+      font-size: 1.875rem;
+    }
+  }
+
+  /* Paragraaf stijlen */
+  p {
+    margin: 0;
+    line-height: 1.625;
+    color: var(--color-secundair-700);
+  }
+
+  /* Link stijlen */
+  a {
+    color: var(--color-primair-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-primair-700);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 2px solid var(--color-primair-500);
+    outline-offset: 2px;
+  }
+
+  /* Formulier elementen */
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid var(--color-primair-500);
+    outline-offset: 2px;
+  }
+
+  /* Selectie stijlen */
+  ::selection {
+    background-color: var(--color-primair-100);
+    color: var(--color-primair-900);
+  }
+
+  ::-moz-selection {
+    background-color: var(--color-primair-100);
+    color: var(--color-primair-900);
+  }
+
+  /* Placeholder stijlen */
+  ::placeholder {
+    color: var(--color-secundair-400);
+    opacity: 1;
+  }
+
+  /* Scrollbar stijlen */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-secundair-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-secundair-300);
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primair-400);
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }
 
+/* Component layer */
 @layer components {
+
+  /* Container stijlen */
   .container-aangepast {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1280px;
   }
 
+  @media (min-width: 640px) {
+    .container-aangepast {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-aangepast {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Tekst gradients */
   .tekst-gradient {
-    @apply bg-gradient-to-r from-primair-600 to-primair-700 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, var(--color-primair-600), var(--color-primair-700));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite alternate;
   }
 
+  /* Schaduw utilities */
   .schaduw-zacht {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-zacht);
   }
 
   .schaduw-hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-hover);
+    transition: box-shadow var(--transition-default);
+  }
+
+  .schaduw-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .schaduw-glow-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+  }
+
+  /* Card component */
+  .kaart-basis {
+    background: #ffffff;
+    border: 1px solid var(--color-secundair-200);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-zacht);
+    transition: all var(--transition-default);
+  }
+
+  .kaart-basis:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Button basis */
+  .knop-basis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+
+  .knop-basis:focus {
+    outline: 2px solid var(--color-primair-500);
+    outline-offset: 2px;
+  }
+
+  .knop-basis:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primair {
+    background: linear-gradient(135deg, var(--color-primair-600), var(--color-primair-700));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, var(--color-primair-50) 0%, #ffffff 50%, var(--color-secundair-50) 100%);
+  }
+}
+
+/* Utilities layer */
+@layer utilities {
+
+  /* Typography utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Interaction utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Safe area utilities */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Performance utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+}
+
+/* Keyframe animaties */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Reduced motion ondersteuning */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .tekst-gradient {
+    animation: none;
+  }
+}
+
+/* High contrast ondersteuning */
+@media (prefers-contrast: high) {
+  .tekst-gradient {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: var(--color-secundair-900);
+  }
+
+  .glass {
+    background: #ffffff;
+    backdrop-filter: none;
+    border: 2px solid var(--color-secundair-900);
+  }
+}
+
+/* Print optimalisaties */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Browser specifieke fixes */
+@supports (-webkit-touch-callout: none) {
+  .ios-fix {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@supports (-moz-appearance: none) {
+  .firefox-fix {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secundair-300) var(--color-secundair-100);
   }
 }
